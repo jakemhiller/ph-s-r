@@ -1,0 +1,17 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
