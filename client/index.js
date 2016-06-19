@@ -6,3 +6,6 @@ import 'phaser';
 
 // Basic page styles
 import './styles';
+
+// Start 'er up
+import './game';

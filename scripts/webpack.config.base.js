@@ -10,7 +10,7 @@ module.exports = (options = {}) => {
     outputFolderName = 'assets',
     staticFolderName = 'static',
     extensions = ['', '.js', '.json', '.css'],
-    devtool = isDEV ? 'cheap-module-eval-source-map' : 'hidden-source-map'
+    devtool = isDEV ? '#inline-source-map' : 'hidden-source-map'
   } = options;
 
   return {
