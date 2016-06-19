@@ -1,4 +1,4 @@
-const { partial, assignWith, isArray } = require('lodash');
+const { partial, mergeWith, isArray, isObject } = require('lodash');
 const path = require('path');
 
 
@@ -9,15 +9,14 @@ const rootDir = path.resolve(__dirname, '../');
 const dir = partial(path.resolve, rootDir);
 
 const mergeConfig = (source, ...destinations) => {
-  return assignWith({}, source, ...destinations, (srcVal, destVal) => {
+  return mergeWith({}, source, ...destinations, (srcVal, destVal) => {
     if (isArray(srcVal) && isArray(destVal)) {
       return srcVal.concat(destVal);
     }
-    return undefined;
   });
 };
 
-exports = {
+module.exports = {
   rootDir,
   dir,
   mergeConfig,
