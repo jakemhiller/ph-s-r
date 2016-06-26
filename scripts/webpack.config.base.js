@@ -22,7 +22,6 @@ module.exports = (options = {}) => {
     },
     output: {
       path: dir(staticFolderName),
-      publicPath: staticFolderName,
       filename: outputFileName
     },
     resolve: {
@@ -59,7 +58,7 @@ module.exports = (options = {}) => {
     plugins: [
       new HtmlWebpackPlugin({
         title,
-        filename: 'index.html',
+        template: 'index.html',
         inject: 'body'
       }),
       new webpack.LoaderOptionsPlugin({

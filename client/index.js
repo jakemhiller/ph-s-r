@@ -23,4 +23,4 @@ Object.keys(states).forEach((id) => {
   game.state.add(id, states[id]);
 });
 
-game.state.start('Intro');
+game.state.start('Example');
