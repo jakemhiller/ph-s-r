@@ -5,12 +5,11 @@ const { dir, isDEV } = require('./webpack-helpers');
 
 module.exports = (options = {}) => {
   const {
-    title = 'My PhaserJS Game',
-    entryFileName = 'index.js',
-    outputFileName = 'bundle.js',
-    entryFolderName = 'client',
-    staticFolderName = 'static',
-    extensions = ['', '.js', '.json', '.css'],
+    title,
+    entryFileName,
+    outputFileName,
+    entryFolderName,
+    outputFolderName,
     devtool = isDEV ? '#inline-source-map' : 'hidden-source-map'
   } = options;
 
@@ -21,7 +20,7 @@ module.exports = (options = {}) => {
       js: [`./${entryFileName}`]
     },
     output: {
-      path: dir(staticFolderName),
+      path: dir(outputFolderName),
       filename: outputFileName
     },
     resolve: {
@@ -67,7 +66,7 @@ module.exports = (options = {}) => {
       })
     ],
     devServer: {
-      contentBase: staticFolderName
+      contentBase: outputFolderName
     }
   };
 };
