@@ -10,6 +10,7 @@ module.exports = (options = {}) => {
     outputFileName,
     entryFolderName,
     outputFolderName,
+    extensions,
     devtool = isDEV ? '#inline-source-map' : 'hidden-source-map'
   } = options;
 
