@@ -1,13 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { dir, isDEV } = require('./webpack-helpers');
 
 module.exports = (options = {}) => {
   const {
+    title = 'My PhaserJS Game',
     entryFileName = 'index.js',
     outputFileName = 'bundle.js',
     entryFolderName = 'client',
-    outputFolderName = 'assets',
     staticFolderName = 'static',
     extensions = ['', '.js', '.json', '.css'],
     devtool = isDEV ? '#inline-source-map' : 'hidden-source-map'
@@ -20,8 +21,8 @@ module.exports = (options = {}) => {
       js: [`./${entryFileName}`]
     },
     output: {
-      path: dir(`${staticFolderName}/${outputFolderName}`),
-      publicPath: outputFolderName,
+      path: dir(staticFolderName),
+      publicPath: staticFolderName,
       filename: outputFileName
     },
     resolve: {
@@ -56,6 +57,11 @@ module.exports = (options = {}) => {
       ]
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        title,
+        filename: 'index.html',
+        inject: 'body'
+      }),
       new webpack.LoaderOptionsPlugin({
         minimize: !isDEV,
         debug: false

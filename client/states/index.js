@@ -1,2 +1,2 @@
 // Game states
-export { Intro } from './Intro';
+export { Example } from './Example';

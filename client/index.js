@@ -1,11 +1,26 @@
+// Basic page styles
+import './styles';
 
 // Import global phaser modules
 import 'pixi';
 import 'p2';
-import 'phaser';
+import Phaser from 'phaser';
 
-// Basic page styles
-import './styles';
+// Import game states
+import * as states from 'states';
 
-// Start 'er up
-import './game';
+const game = new Phaser.Game(
+  800,
+  600,
+  Phaser.AUTO,
+  document.body,
+  null,
+  false,
+  false
+);
+
+Object.keys(states).forEach((id) => {
+  game.state.add(id, states[id]);
+});
+
+game.state.start('Intro');

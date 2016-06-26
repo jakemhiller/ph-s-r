@@ -1,9 +1,10 @@
 
 import Phaser from 'phaser';
 
-export class Intro extends Phaser.State {
+export class Example extends Phaser.State {
 
-  state = 'intro';
+  state = 'example';
+
   gameObjects = {
     bullets: null,
     ship: null,
